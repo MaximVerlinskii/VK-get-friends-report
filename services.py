@@ -358,7 +358,7 @@ class VkResponseData:
         """
         self.list_of_users: list[User] = []
         for friend in vk_data['response']['items']:
-            if friend.get('deactivated'):
+            if friend.get('deactivated'):          # skip banned and deleted users
                 continue
             user = User(first_name=friend.get('first_name'),
                         last_name=friend.get('last_name'),
